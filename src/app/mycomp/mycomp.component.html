@@ -1,0 +1,55 @@
+<app-headercomp></app-headercomp>
+
+<ul>
+    <li *ngFor = "let ud of users">
+        {{ud}}
+    </li><br>
+   
+        <li *ngFor = "let pd of projects">
+        {{pd}}
+    </li><br>
+    
+        <li *ngFor = "let dd of depts">
+        {{dd}}
+    </li><br>
+
+</ul>
+city : {{mycity}}
+[mycity]<br>
+My city : <input type="text" [(ngModel)]="mycity" class = "form-control"/>
+picture : <input type="text" [(ngModel)]="picture" class = "form-control"/>
+pppp : <img [src] = 'picture'/><br>
+
+
+profile : <img [src] = 'profilepic'/><br>
+
+<div [hidden] = "shoppingList.length ==0" >items in the shoppingList</div>
+<div [hidden] = "shoppingList.length > 0">no items found</div>
+
+<div *ngIf = "shoppingList.length > 0" >items in the shoppingList</div>
+<div  *ngIf = "shoppingList.length == 0">no items found</div>
+
+<div  *ngIf = "shoppingList.length == 0;then ishow else show"></div>
+
+<ng-template #show>items in cart</ng-template>
+<ng-template #ishow>no items</ng-template><br>
+
+<div *ngIf = "users.length == 0 ;then ishow1 else show1"></div>
+
+<ng-template #show1 >
+
+<ul>
+    <li *ngFor = "let ud of users">
+        {{ud}}
+    </li>
+</ul>
+    </ng-template>
+<ng-template #ishow1>no items</ng-template>
+
+
+<button (click) = 'callme()' class = "btn btn-success">call</button>
+ <app-footercomp></app-footercomp>
+ <app-pipedemo></app-pipedemo>
+<app-favorite-component [isFavorite] = 'fav'></app-favorite-component>
+<app-like [totalLikes] = totLike></app-like>
+ 
